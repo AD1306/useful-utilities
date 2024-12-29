@@ -32,4 +32,24 @@ services:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
       KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    command: postgres -c port=5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password1!
+      - POSTGRES_DB=postgres_db
+
+  mysql:
+    image: mysql
+    ports: 
+      - "3306:3306"
+    environment: 
+      - MYSQL_DATABASE=mysql
+      - MYSQL_USER=mysql_db
+      - MYSQL_ROOT_PASSWORD=password1!
+      - MYSQL_PASSWORD=password1!
      
